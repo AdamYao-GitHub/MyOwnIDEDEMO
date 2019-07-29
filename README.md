@@ -1,46 +1,73 @@
-# MyOwnIDEDEMO  
+# bo-design-extension
+The example of how to build the Theia-based applications with the bo-design-extension.
 
-# Local Environment configuration.
--   Prepare:  
-    JDK:https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html  
-    Python: https://www.python.org/downloads/windows/ 
-    Visual Studio Installar 2017: https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&rel=16  
-    Build tools: `npm i --global --production windows-build-tools`, if you want to using fix version. `npm install --global --production windows-build-tools@<version number>`
-    Yarn: `npm i -g yarn`  
-    Optional: If you want to control the node version you can install nvm; if your node version is >=12 please instal nvm control your node version; https://github.com/coreybutler/nvm-windows/releases
-- nvm(OPtional)  
-  `nvm list`: list all install node versions
-  `nvm install <version number>`: insatll the version of node;
-  `nvm use <version number>`: use sepcial version of the node which has been installed before;
-- initial the environment:  
-  generate json file which called "package.json" below the folder;
-  ```
-    {
-        "private": true,
-        "dependencies":{
-            "@theia/callhierarchy": "next",
-            "@theia/file-search": "next",
-            "@theia/git": "next",
-            "@theia/json": "next",
-            "@theia/markers": "next",
-            "@theia/merge-conflicts": "next",
-            "@theia/messages": "next",
-            "@theia/mini-browser": "next",
-            "@theia/navigator": "next",
-            "@theia/outline-view": "next",
-            "@theia/search-in-workspace": "next",
-            "@theia/preferences": "next",
-            "@theia/preview": "next",
-            "@theia/terminal": "next",
-            "@theia/textmate-grammars": "next",
-            "@theia/typescript": "next",
-            "typescript": "3.4.3"
-        },
-        "devDependencies": {
-            "@theia/cli": "next"
-        }
-    }
-  ```
-  `yarn`: install the required plugins;  
-  `yarn theia build`: build the your local own IDE;  
-  `yarn theia start` or `yarn theia start <path> --hostname <hostname> --port <port number>`: start theia with default or customize setting; 
+## Getting started
+
+Install [nvm](https://github.com/creationix/nvm#install-script).
+
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+
+Install npm and node.
+
+    nvm install 8
+    nvm use 8
+
+Install yarn.
+
+    npm install -g yarn
+
+## Running the browser example
+
+    yarn rebuild:browser
+    cd browser-app
+    yarn start
+
+Open http://localhost:3000 in the browser.
+
+## Running the Electron example
+
+    yarn rebuild:electron
+    cd electron-app
+    yarn start
+
+## Developing with the browser example
+
+Start watching of bo-design-extension.
+
+    cd bo-design-extension
+    yarn watch
+
+Start watching of the browser example.
+
+    yarn rebuild:browser
+    cd browser-app
+    yarn watch
+
+Launch `Start Browser Backend` configuration from VS code.
+
+Open http://localhost:3000 in the browser.
+
+## Developing with the Electron example
+
+Start watching of bo-design-extension.
+
+    cd bo-design-extension
+    yarn watch
+
+Start watching of the electron example.
+
+    yarn rebuild:electron
+    cd electron-app
+    yarn watch
+
+Launch `Start Electron Backend` configuration from VS code.
+
+## Publishing bo-design-extension
+
+Create a npm user and login to the npm registry, [more on npm publishing](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+
+    npm login
+
+Publish packages with lerna to update versions properly across local packages, [more on publishing with lerna](https://github.com/lerna/lerna#publish).
+
+    npx lerna publish

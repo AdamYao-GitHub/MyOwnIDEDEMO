@@ -1,14 +1,6 @@
-# dependencies
-node_modules/
-package-lock.json
-
-# build sources
-dist
-
-
-# logs
-logs
+node_modules
+.browser_modules
+lib
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*-app/*
+!*-app/package.json

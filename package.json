@@ -1,29 +1,14 @@
 {
-    "name": "mywebidedemo",
-    "version": "1.0.0",
-    "description": "palying with theia",
-    "author": "Adam Yao",
-    "private": true,
-    "dependencies": {
-        "typescript": "latest",
-        "@theia/typescript": "next",
-        "@theia/navigator": "next",
-        "@theia/terminal": "next",
-        "@theia/outline-view": "next",
-        "@theia/preferences": "next",
-        "@theia/messages": "next",
-        "@theia/git": "next",
-        "@theia/file-search": "next",
-        "@theia/markers": "next",
-        "@theia/preview": "next",
-        "@theia/callhierarchy": "next",
-        "@theia/merge-conflicts": "next",
-        "@theia/search-in-workspace": "next",
-        "@theia/json": "next",
-        "@theia/textmate-grammars": "next",
-        "@theia/mini-browser": "next"
-    },
-    "devDependencies": {
-        "@theia/cli": "next"
-    }
+  "private": true,
+  "scripts": {
+    "prepare": "lerna run prepare",
+    "rebuild:browser": "theia rebuild:browser",
+    "rebuild:electron": "theia rebuild:electron"
+  },
+  "devDependencies": {
+    "lerna": "2.4.0"
+  },
+  "workspaces": [
+    "bo-design-extension", "browser-app", "electron-app"
+  ]
 }
